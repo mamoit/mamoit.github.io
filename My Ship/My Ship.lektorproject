@@ -1,2 +1,5 @@
 [project]
 name = My Ship
+
+[servers.ghpages]
+target = ghpages://mamoit/mamoit.github.io
