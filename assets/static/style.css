@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: 'Verdana', sans-serif;
     margin: 50px 25px;
 }
@@ -39,4 +39,7 @@ header nav ul li {
 
 div.page {
     background: #f1fbfe;
+}*/
+body {
+    padding-top: 70px;
 }

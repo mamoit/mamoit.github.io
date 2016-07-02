@@ -1,33 +1,39 @@
 <!doctype html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ '/static/css/bootstrap.min.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/css/sticky-footer-navbar.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/css/bootstrap-theme.min.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
 <title>{% block title %}Welcome{% endblock %} — My Ship</title>
 <body>
-  <header>
-    <h1>My Ship</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ '/'|url }}">
+            My Ship
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          {% for href, title in [
+            ['/blog', 'Blog'],
+            ['/projects', 'Projects'],
+            ['/about', 'About']
+          ] %}
+            <li{% if this.is_child_of(href) %} class="active"{% endif
+              %}><a href="{{ href|url }}">{{ title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
     </nav>
-  </header>
-  <div class="page">
-    {% block body %}{% endblock %}
-  </div>
-  <footer>
-    &copy; Copyright 2016 by Miguel Almeida.
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">&copy; Copyright 2016 by Miguel Almeida.</p>
+        </div>
+    </footer>
     <script src="{{ '/static/js/jquery-2.2.4.min.js'|url }}"></script>
     <script src="{{ '/static/js/bootstrap.min.js'|url }}"></script>
-  </footer>
 </body>
